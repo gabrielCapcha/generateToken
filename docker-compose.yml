@@ -1,0 +1,22 @@
+version: '3'
+
+volumes:
+  olympus_vol_mysql:
+
+services:
+  db:
+    image: 'mysql:latest'
+    container_name: olympus_db
+    restart: on-failure
+    working_dir: /app
+    volumes:
+      - olympus_vol_mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ares
+      MYSQL_DATABASE: olimpo
+      MYSQL_USER: zeus
+      MYSQL_PASSWORD: ares
+    ports:
+      - "3306:3306"
+
+
